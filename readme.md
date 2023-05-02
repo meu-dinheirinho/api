@@ -65,6 +65,55 @@ Para apenas parar os contêineres, execute o seguinte comando:
 make kill
 ```
 
+## Executando sem makefile
+
+Instale as dependências do Node.js.
+
+```
+npm install
+```
+
+### Executando
+
+execute o build da aplicação.
+
+```
+docker-compose build
+```
+
+
+Inicie a aplicação com o Docker.
+
+```
+docker-compose up -d
+```
+
+Acesse a aplicação em seu navegador em `http://localhost:3000`.
+
+### Parando
+
+Pare a aplicação com o Docker.
+
+```
+docker-compose stop
+```
+
+### Reiniciando
+
+Reinicie a aplicação com o Docker.
+
+```
+docker-compose restart
+```
+
+### Finalizando
+
+Encerre todos os containers Docker em execução.
+
+```
+docker-compose down
+```
+
 ## Conclusão
 
 Agora você tem o projeto rodando em sua máquina. Lembre-se de que, sempre que quiser iniciar ou parar os contêineres, você deve estar no diretório raiz do projeto e usar o arquivo Makefile para executar esses comandos de forma mais simples.
