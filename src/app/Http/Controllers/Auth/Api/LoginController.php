@@ -34,6 +34,6 @@ class LoginController extends Controller
         $client = new GoogleClient(['client_id' => '72696091362-6cedad0alpf0hmapsn9a5v3unju2faqt.apps.googleusercontent.com']);  // Specify the CLIENT_ID of the app that accesses the backend
         $payload = $client->verifyIdToken($credentials);        
         return response()->json([
-            'credentials' =>$payload],200);
+            'Credentials' =>$payload],200);
     }
 }
