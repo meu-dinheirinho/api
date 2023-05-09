@@ -33,4 +33,5 @@ Route::prefix('auth')->group(function() {
     Route::post('login', [\App\Http\Controllers\Auth\Api\LoginController::class, 'login']);
     Route::post('logout', [\App\Http\Controllers\Auth\Api\LoginController::class, 'logout'])->middleware('auth:sanctum');
     Route::post('register', [\App\Http\Controllers\Auth\Api\RegisterController::class, 'register']);
+    Route::post('google', [\App\Http\Controllers\Auth\Api\LoginController::class, 'google']);
 });
