@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
-            $table->integer('id_type_wallet');
-            $table->integer('institution_number');
+            $table->integer('id_user')->nullable();
+            $table->integer('account_type')->nullable();
+            $table->integer('institution')->nullable();
             $table->string('name');
             $table->text('description');
             $table->decimal('current_value',5, 2);
-            $table->enum('favorite', [1, 0]);
-            $table->enum('ignore_on_final_value', [1, 0]);
-            $table->string('color');
+            $table->enum('favorite', [1, 0])->default(0);
+            $table->enum('ignore_on_final_value', [1, 0])->default(0);
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }
