@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\WalletController;
+use App\Http\Controllers\BudgetsController;
+use App\Http\Controllers\GoalsController;
+use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\CreditCardsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +40,12 @@ Route::prefix('auth')->group(function() {
     Route::post('register', [\App\Http\Controllers\Auth\Api\RegisterController::class, 'register']);
     Route::post('google', [\App\Http\Controllers\Auth\Api\LoginController::class, 'google']);
 });
+
+
+Route::apiResource('wallet', WalletController::class);
+Route::apiResource('budget', BudgetsController::class);
+Route::apiResource('transaction', TransactionsController::class);
+Route::apiResource('goal', GoalsController::class);
+Route::apiResource('creditCard', CreditCardsController::class);
+
+
