@@ -17,6 +17,16 @@ class CreditCardsController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $creditCard = CreditCard::find($id);
+
+        return response()->json([
+            'status' => true,
+            'creditCard' => $creditCard
+        ], 200);
+    }
+
     public function store(Request $request){
         $creditCard = CreditCard::create($request->all());
 

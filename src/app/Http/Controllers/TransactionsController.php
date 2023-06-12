@@ -17,6 +17,21 @@ class TransactionsController extends Controller
         ]);
     }
 
+    public function getTransactionTotalByType($id_wallet, $id){
+        $transactionValue = Transaction::where('id_wallet', $id_wallet)->where('id_type_transaction', $id)->sum('value');
+        return response()->json(['status' => true, 'value' => $transactionValue]);
+    }
+
+    public function show($id)
+    {
+        $transaction = Transaction::find($id);
+
+        return response()->json([
+            'status' => true,
+            'transaction' => $transaction
+        ], 200);
+    }
+
     public function store(Request $request){
         $transaction = Transaction::create($request->all());
 

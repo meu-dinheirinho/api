@@ -17,6 +17,16 @@ class BudgetsController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $budget = Budget::find($id);
+
+        return response()->json([
+            'status' => true,
+            'budget' => $budget
+        ], 200);
+    }
+
     public function store(Request $request){
         $budget = Budget::create($request->all());
 

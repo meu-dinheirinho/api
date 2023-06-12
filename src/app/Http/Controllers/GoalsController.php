@@ -17,6 +17,16 @@ class GoalsController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $goal = Goal::find($id);
+
+        return response()->json([
+            'status' => true,
+            'goal' => $goal
+        ], 200);
+    }
+
     public function store(Request $request){
         $goal = Goal::create($request->all());
 

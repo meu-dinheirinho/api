@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('current_value',5, 2);
-            $table->enum('favorite', [1, 0])->default(0);
-            $table->enum('ignore_on_final_value', [1, 0])->default(0);
+            $table->enum('favorite', [1, 0]);
+            $table->enum('ignore_on_final_value', [1, 0]);
             $table->string('color')->nullable();
             $table->timestamps();
         });

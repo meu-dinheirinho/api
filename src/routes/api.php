@@ -42,10 +42,21 @@ Route::prefix('auth')->group(function() {
 });
 
 
-Route::apiResource('wallet', WalletController::class);
-Route::apiResource('budget', BudgetsController::class);
-Route::apiResource('transaction', TransactionsController::class);
-Route::apiResource('goal', GoalsController::class);
-Route::apiResource('creditCard', CreditCardsController::class);
+Route::apiResource('wallet', WalletController::class)->middleware('auth:sanctum');
+Route::apiResource('budget', BudgetsController::class)->middleware('auth:sanctum');
+Route::apiResource('transaction', TransactionsController::class)->middleware('auth:sanctum');
+Route::apiResource('goal', GoalsController::class)->middleware('auth:sanctum');
+Route::apiResource('creditCard', CreditCardsController::class)->middleware('auth:sanctum');
+
+
+Route::controller(TransactionsController::class)->group( function(){
+    Route::get('/transactions/soma/{id_wallet}/{id_type}', 'getTransactionTotalByType');
+});
+
+Route::controller(WalletController::class)->group( function(){
+    Route::get('/wallets/soma/{id_user}/{id_wallet?}', 'getWalletCurrentValue');
+});
+
+
 
 
