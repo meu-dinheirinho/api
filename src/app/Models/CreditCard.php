@@ -10,7 +10,6 @@ class CreditCard extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_user',
         'id_wallet',
         'alias',
         'limit_value',

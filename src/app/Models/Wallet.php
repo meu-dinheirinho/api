@@ -11,8 +11,8 @@ class Wallet extends Model
 
     protected $fillable = [
         'id_user',
-        'id_type_wallet',
-        'institution_number',
+        'account_type',
+        'institution',
         'name',
         'description',
         'current_value',
