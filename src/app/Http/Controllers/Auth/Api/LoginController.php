@@ -16,10 +16,12 @@ class LoginController extends Controller
         if(!auth()->attempt($credentials)) abort(401, 'Invalid Credentials');
 
         $token = auth()->user()->createToken('auth_token');
+        $userId = auth()->user()->id;
 
         return response()->json([
             'data' => [
-                'token' => $token->plainTextToken
+                'token' => $token->plainTextToken,
+                'userId' => $userId,
             ]
         ]);
     }
@@ -32,7 +34,7 @@ class LoginController extends Controller
     public function google(Request $request){
         $credentials = $request->credential;
         $client = new GoogleClient(['client_id' => '72696091362-6cedad0alpf0hmapsn9a5v3unju2faqt.apps.googleusercontent.com']);  // Specify the CLIENT_ID of the app that accesses the backend
-        $payload = $client->verifyIdToken($credentials);        
+        $payload = $client->verifyIdToken($credentials);
         return response()->json([
             'Credentials' =>$payload],200);
     }
